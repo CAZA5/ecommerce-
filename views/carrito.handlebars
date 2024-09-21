@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card{
+            width: 250px;
+            height: 250px;
+            background-color: green;
+            border-radius: 5px;
+            border: 1px solid black;
+            margin-left: 2rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h2>Carrito de compra</h2>
+   <div> 
+        {{#each carrito}}
+            <div class="card">
+            <h3>{{this.nombre}}</h3>
+            <p>{{this.precio}}</p>
+            <p>{{this.descripcion}}</p>
+            <p>{{this.thumbnail}}</p>
+            <p>{{this.sku}}</p>
+            <p>{{this.stock}}</p>
+           <p>id: {{this.prodcutoId}}</p>
+            <form action="/api/products/addToCart/view/remove" method="post">
+                <button type="submit" name="removeProducto" value="{{this.prodcutoId}}">Quitar producto de carrito</button>
+            </form>
+            
+            </div>
+        {{/each}}
+
+       
+
+  
+        
+   </div>
+</body>
+</html>
